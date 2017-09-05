@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>ES5知识点复习</title>
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style type="text/css">
+body{
+  background: #e3e3e3;
+  font-family: "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei","Microsoft YaHei UI","Microsoft YaHei",sans-serif;
+}
+header{
+  position: relative;
+  height: auto;
+  padding: 100px 0px;
+  text-align: center;
+  margin-bottom: 65px;
+}
+.column{
+  background: #fff;
+  position: relative;
+  height: auto;
+  padding: 35px;
+  margin-bottom: 35px;
+}
+.content{
+  position: relative;
+  height: auto;
+  padding-top: 20px;
+  line-height: 1.7!important;
+}
+</style>
+</head>
+<body>
+<header class="bg-primary">
+  <h1>ES5知识点复习</h1>
+</header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-xs-12">
+      <div class="column">
+        <h1>es5中的数据类型</h1>
+        <p class="lead content">
+          基本数据类型: <mark>number,string,boolean,undefined,null</mark><br/>
+          引用数据类型: <mark>Object</mark><br/>
+          <strong>所有引用类型的值都是Object的实例</strong>
+        </p>
+      </div>
+      <div class="column">
+        <h1>Object对象与bom,dom的关系</h1>
+        <p class="lead content">
+          一般来说所有对象都会继承Object一些属性和方法，<strong>但bom和dom对象是由浏览器实现的，
+          所以可能不会包含Object的一些属性和方法</strong>
+        </p>
+      </div>
+      <div class="column">
+        <h1>位运算</h1>
+        <div class="lead content">
+          <dl>
+            <dt>按位非(NOT)</dt>
+            <dd>操作数的负值减1,例如: ~25 = -26</dd>
+            <dt>按位与(AND)</dt>
+            <dd>对应位上都为1时,结果位上才为1,否则为0,例如:7 &amp; 3 = 3</dd>
+            <dt>按位或(OR)</dt>
+            <dd>对应位上有一个为1时,结果就为1,否则为0,例如:8 | 3 = 0</dd>
+            <dt>按位异或(XOR)</dt>
+            <dd>对应对上有且仅有一个为1时,结果就为1,否则为0,例如: 8 ^ 3 = 11</dd>
+            <dt>左移(n * 2^m)</dt>
+            <dd>将一个数值(n)的所有位向左移动m位,结果为s = n * ( 2 ^ m ),例如:2 &lt;&lt; 5 = 64</dd>
+            <dt>右移(n / 2^m)</dt>
+            <dd>将一个数值(n)的所有位向右移动m位,结果为s = n / ( 2 ^ m ),如果结果为小数,则向下取整,为0,例如:2 >> 5 = 0</dd>
+            <dt>逻辑非</dt>
+            <dd>逻辑取反,进行运算的变量会先转成boolean值后进行逻辑取反,例如:!2 = false</dd>
+            <dt>逻辑与</dt>
+            <dd>都为真时取真,否则为假</dd>
+            <dt>逻辑或</dt>
+            <dd>至少有一方为真时取真,否则为假</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="column">
+        <h1>javascript垃圾收集机制</h1>
+        <div class="lead content">
+          <ol>
+            <li>标记清除(常用)</li>
+            <li>引用计数(不常用),IE中的组件对象模型用的是引用计数</li>
+          </ol>
+        </div>
+      </div>
+      <div class="column">
+        <h1>关于函数的创建</h1>
+        <div class="lead content">
+          <blockquote>
+            函数定义式：function fn(){}<br/>
+            函数表达式：var fn = function(){};<br/>
+            函数表达式(构造函数)：var fn = new Function();<br/>
+            不推荐第三种方式的理由：<strong>会导致两次解析，影响性能，第一次是常规解析ES代码的时候，第二次是
+            解析函数传入的参数值。</strong><br/>
+            函数名仅仅只是指向函数体的指针,修改函数名并不会影响函数体的变化,所以js中没有重载的概念<br/>
+            在解析器解析代码时，函数声明会被提升到顶部，而函数表达式则会在解析器执行到其所在位置时才会被执行</br>
+            <pre>
+            var a = function b(){};
+            console.log(a.name); //b
+            console.log(b.name); //报错,b未定义
+            </pre>
+            callee指向拥有arguments对象的函数,caller指向调用该函数的函数
+          </blockquote>
+        </div>
+      </div>
+      <div class="column">
+        <h1>闭包</h1>
+        <div class="lead content">
+          闭包是指有权访问<mark>另一个函数作用域中的<strong>变量</strong>的函数</mark>，一般来说闭包只能
+          取得包含函数中变量的最后一个值：如：
+          <pre>
+          function fn(){
+            var res = [];
+
+            for( var i = 0; i &lt; 10; i++ ){
+              res[i] = function(){
+                console.log(i); //全是10
+              };
+            }
+
+          }
+          </pre>
+          如果需要保存对应的值，可以继续建立一个内部闭包，如：
+          <pre>
+          function fn(){
+            var res = [];
+
+            for( var i = 0; i &lt; 10; i++ ){
+              res[i] = (function(num){
+                return function(){
+                  console.log(i); //输出正确结果
+                }
+              }(i));
+            }
+
+          }
+          </pre>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-xs-12">
+      <div class="column">
+        <h1>typeof操作符的值</h1>
+        <div class="lead content">
+          <blockquote>
+            typeof undefined(未定义的变量) : "undefined"<br/>
+            typeof number(数值) : "number"<br/>
+            typeof true/false : "boolean"<br/>
+            typeof string(字符串) : "string"<br/>
+            typeof object(对象/数组/null) : "object"<br/>
+            typeof function(函数) : "function"
+          </blockquote>
+        </div>
+      </div>
+      <div class="column">
+        <h1>运算符对变量进行类型转换</h1>
+        <div class="lead content">
+          运算符会将变量转成number类型后进行计算，对于object，会先调用valueOf或者toString后，
+          在进行计算，例如：<br/>
+          <pre>
+          var o = {
+            valueOf : function(){
+              return 1;
+            }
+          };
+
+          console.log(+o);
+
+          //输出：1
+          </pre>
+        </div>
+      </div>
+      <div class="column">
+        <h1>乘(除)法运算需要注意的事情</h1>
+        <div class="lead content">
+          <ol>
+            <li>如果有个操作数是NaN,则结果是NaN</li>
+            <li>如果infinity与0相乘,则结果是NaN</li>
+            <li>infinity与其他数字计算,则结果是infinity</li>
+            <li>0/0 = NaN</li>
+          </ol>
+        </div>
+      </div>
+      <div class="column">
+        <h1>执行环境与作用域</h1>
+        <div class="lead content">
+          <dl>
+            <dt>执行环境</dt>
+            <dd>执行环境定义了变量和函数有权访问的其他数据，决定了他们各自的行为</dd>
+            <dt>作用域</dt>
+            <dd>保证代码的有效访问的范围</dd>
+            <dt>作用域链</dt>
+            <dd>保证对执行环境有权访问的所有变量和函数的有序访问</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="column">
+        <h1>继承</h1>
+        <div class="lead content">
+          <pre>
+          function object(o){
+            var fn = function(){};
+            fn.prototype = o;
+            return new fn();
+          }
+
+          function inherit(sub,superType){
+            var proto = object(superType.prototype);
+            proto.constructor = sub;
+            sub.prototype = proto;
+          }
+
+          function superType(){
+
+          };
+
+          superType.prototype.say = function(){
+            console.log("hello");
+          };
+
+          function subType(){
+            superType.call(this,arguments);
+            console.log(this);
+          }
+
+          inherit(subType,superType);
+
+          subType.prototype.say = function(){
+            console.log("world");
+          };
+
+          new subType();
+          </pre>
+        </div>
+      </div>
+      <div class="column">
+        <h1>window</h1>
+        <div class="lead content">
+          <blockquote>
+            全局变量和方法都是window的属性，但是直接定义的变量不可以通过delete删除，
+            而通过属性添加(如：window.prop)可以通过delete删除，而在IE9以前的浏览器对window对象进行
+            delete删除时，会报错
+          </blockquote>
+        </div>
+      </div>
+      <div class="column">
+        <h1>提取链接中的字典（键值对）</h1>
+        <div class="lead content">
+          <pre>
+          function queryString(url){
+            url = url || window.location.href;
+            var string = url.split("?")[1] || "",
+                res = {},
+                reg = /([^=?&amp;]+)=([^=?&amp;]*)/g;
+            
+            string.replace(reg,function(str,$key,$value){
+              var k = decodeURIComponent($key),
+                  v = decodeURIComponent($value);
+              
+              res[k] = v;
+              return str;
+            });
+
+            return res;
+          }
+          </pre>
+        </div>
+      </div>
+    </div>
+    <div class="clearfix visible-xs-block visible-md-block"></div>
+  </div>
+</div>
+</body>
+</html>
