@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+<title>requireJS</title>
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style type="text/css">
+body{
+  background: #e3e3e3;
+  font-family: "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei","Microsoft YaHei UI","Microsoft YaHei",sans-serif;
+}
+header{
+  position: relative;
+  height: auto;
+  padding: 100px 0px;
+  text-align: center;
+  margin-bottom: 65px;
+}
+.column{
+  background: #fff;
+  position: relative;
+  height: auto;
+  padding: 35px;
+  margin-bottom: 35px;
+}
+.content{
+  position: relative;
+  height: auto;
+  padding-top: 20px;
+  line-height: 1.7!important;
+}
+</style>
+</head>
+<body>
+<header class="bg-primary">
+  <h1>requireJS知识点复习</h1>
+</header>
+<div class="container-fluid">
+  <div class="row">
+  	<div class="col col-md-6 col-xs-12">
+  		<div class="column">
+  			<h3>requireJS的优点</h3>
+  			<div class="content">
+  				1. 防止页面阻塞<br/>
+  				2. 模块化开发，文件依赖结构更清楚<br/>
+  				3. 美观代码
+  			</div>
+  		</div>
+      <div class="column">
+        <h3>模块化开发的优点</h3>
+        <div class="content">
+          1. 分工明确，依赖关系明显，协作开发更高效<br/>
+          2. 可以根据需求进行模块拓展<br/>
+          3. 良好的作用域避免了对全局变量的污染
+        </div>
+      </div>
+  	</div>
+  	<div class="col col-md-6 col-xs-12">
+  		<div class="column">
+  			<h3>requireJS根路径的确定</h3>
+  			<div class="content">
+  				由data-main的入口js所在的位置为根目录,如果config中设置了baseUrl,则为baseUrl设置的值。如果没有显式指定config及data-main，则默认的baseUrl为包含RequireJS的那个HTML页面的所属目录
+  			</div>
+  		</div>
+  	</div>
+  </div>
+</div>
+</body>
+</html>
