@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+<title>requireJS</title>
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style type="text/css">
+body{
+  background: #e3e3e3;
+  font-family: "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei","Microsoft YaHei UI","Microsoft YaHei",sans-serif;
+}
+header{
+  position: relative;
+  height: auto;
+  padding: 100px 0px;
+  text-align: center;
+  margin-bottom: 65px;
+}
+.column{
+  background: #fff;
+  position: relative;
+  height: auto;
+  padding: 35px;
+  margin-bottom: 35px;
+}
+.content{
+  position: relative;
+  height: auto;
+  padding-top: 20px;
+  line-height: 1.7!important;
+}
+</style>
+</head>
+<body>
+<header class="bg-primary">
+  <h1>HTML知识点复习</h1>
+</header>
+<div class="container-fluid">
+  <div class="row">
+  	<div class="col col-md-6 col-xs-12">
+  		<div class="column">
+  			<h3>DOCTYPE有什么作用？标准模式与混杂模式如何区分？它们有何意义?</h3>
+  			<div class="content">
+  				1. 告诉浏览器使用哪个版本的HTML规范来渲染文档。<br/>
+          2. DOCTYPE不存在或形式不正确会导致HTML文档以混杂模式呈现。<br/>
+          3. 标准模式（Standards mode）以浏览器支持的最高标准运行；混杂模式（Quirks mode）中页面是一种比较宽松的向后兼容的方式显示。
+  			</div>
+  		</div>
+      <div class="column">
+        <h3>HTML5为什么只需要写 \<\!DOCTYPE HTML\>？</h3>
+        <div class="content">
+          1. HTML5不基于SGML（Standard Generalized Markup Language 标准通用标记语言），因此不需要对DTD（DTD 文档类型定义）进行引用，但是需要DOCTYPE来规范浏览器行为。<br/>
+          2. HTML4.01基于SGML，所以需要引用DTD。才能告知浏览器文档所使用的文档类型。
+        </div>
+      </div>
+      <div class="column">
+        <h3>无样式内容闪烁（FOUC）Flash of Unstyle Content</h3>
+        <div class="content">
+          1. @import导入CSS文件会等到文档加载完后再加载CSS样式表。因此，在页面DOM加载完成到CSS导入完成之间会有一段时间页面上的内容是没有样式的。<br/>
+          2. 解决方法：使用link标签加载CSS样式文件。因为link是顺序加载的，这样页面会等到CSS下载完之后再下载HTML文件，这样先布局好，就不会出现FOUC问题。
+        </div>
+      </div>
+      <div class="column">
+        <h3>介绍一下你对浏览器内核的理解？</h3>
+        <div class="content">
+          主要分成两部分：渲染引擎(Layout Engine或Rendering Engine)和JS引擎。<br/>
+          1. 渲染引擎：负责取得网页的内容（HTML、XML、图像等等）、整理讯息（例如加入CSS等），以及计算网页的显示方式，然后会输出至显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不相同。<br/>
+          2. JS引擎：解析和执行javascript来实现网页的动态效果。
+        </div>
+      </div>
+      <div class="column">
+        <h3>HTML5的文件离线储存怎么使用，工作原理是什么？</h3>
+        <div class="content">
+          在线情况下，浏览器发现HTML头部有manifest属性，它会请求manifest文件，如果是第一次访问，那么浏览器就会根据manifest文件的内容下载相应的资源，并进行离线存储。如果已经访问过并且资源已经离线存储了，那么浏览器就会使用离线的资源加载页面。然后浏览器会对比新的manifest文件与旧的manifest文件，如果文件没有发生改变，就不会做任何操作，如果文件改变了，那么就会重新下载文件中的资源，并且进行离线存储。例如，
+        </div>
+      </div>
+      <div class="column">
+        <h3>iframe框架有那些优缺点？</h3>
+        <div class="content">
+          优点：<br/>
+          1. iframe能够原封不动的把嵌入的网页展现出来。<br/>
+          2. 如果有多个网页引用iframe，那么你只需要修改iframe的内容，就可以实现调用的每一个页面内容的更改，方便快捷。<br/>
+          3. 网页如果为了统一风格，头部和版本都是一样的，就可以写成一个页面，用iframe来嵌套，可以增加代码的可重用。<br/>
+          4. 如果遇到加载缓慢的第三方内容如图标和广告，这些问题可以由iframe来解决。<br/>
+          缺点：<br/>
+          1. 搜索引擎的爬虫程序无法解读这种页面<br/>
+          2. 框架结构中出现各种滚动条<br/>
+          3. 使用框架结构时，保证设置正确的导航链接。<br/>
+          4. iframe页面会增加服务器的http请求
+        </div>
+      </div>
+  	</div>
+  	<div class="col col-md-6 col-xs-12">
+  		<div class="column">
+  			<h3>页面导入样式时，使用link和@import有什么区别？</h3>
+  			<div class="content">
+  				相同的地方，都是外部引用CSS方式，区别：<br/>
+          1. link是xhtml标签，除了加载css外，还可以定义RSS等其他事务；@import属于CSS范畴，只能加载CSS<br/>
+          2. link引用CSS时候，页面载入时同时加载；@import需要在页面完全加载以后加载，而且@import被引用的CSS会等到引用它的CSS文件被加载完才加载<br/>
+          3. link是xhtml标签，无兼容问题；@import是在css2.1提出来的，低版本的浏览器不支持<br/>
+          4. link支持使用javascript控制去改变样式，而@import不支持<br/>
+          5. link方式的样式的权重高于@import的权重<br/>
+          6. import在html使用时候需要style标签<br/>
+  			</div>
+  		</div>
+      <div class="column">
+        <h3>常见的浏览器内核有哪些？</h3>
+        <div class="content">
+          1. Trident( MSHTML )：IE MaxThon TT The World 360 搜狗浏览器<br/>
+          2. Geckos：Netscape6及以上版本 FireFox Mozilla Suite/SeaMonkey<br/>
+          3. Presto：Opera7及以上(Opera内核原为：Presto，现为：Blink)<br/>
+          4. Webkit：Safari Chrome
+        </div>
+      </div>
+      <div class="column">
+        <h3>简述一下你对HTML语义化的理解？</h3>
+        <div class="content">
+          1. 去掉或丢失样式的时候能够让页面呈现出清晰的结构。<br/>
+          2. 有利于SEO和搜索引擎建立良好沟通，有助于爬虫抓取更多的信息，爬虫依赖于标签来确定上下文和各个关键字的权重。<br/>
+          3. 方便其它设备解析。<br/>
+          4. 便于团队开发和维护，语义化根据可读性。
+        </div>
+      </div>
+      <div class="column">
+        <h3>label的作用是什么? 是怎么用的?</h3>
+        <div class="content">
+          1. label标签用来定义表单控件间的关系,当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。label 中有两个属性是非常有用的, FOR和ACCESSKEY。 <br/>
+          2. FOR属性功能：表示label标签要绑定的HTML元素，你点击这个标签的时候，所绑定的元素将获取焦点。<br/>
+          3. ACCESSKEY属性功能：表示访问label标签所绑定的元素的热键，当您按下热键，所绑定的元素将获取焦点。
+        </div>
+      </div>
+      <div class="column">
+        <h3>HTML5的form如何关闭自动完成功能？</h3>
+        <div class="content">
+          HTML的输入框可以拥有自动完成的功能，当你往输入框输入内容的时候，浏览器会从你以前的同名输入框的历史记录中查找出类似的内容并列在输入框下面，这样就不用全部输入进去了，直接选择列表中的项目就可以了。但有时候我们希望关闭输入框的自动完成功能，例如当用户输入内容的时候，我们希望使用AJAX技术从数据库搜索并列举而不是在用户的历史记录中搜索。 <br/>
+          方法：<br/>
+          1. 在IE的internet选项菜单中里的自动完成里面设置。<br/>
+          2. 设置form输入框的autocomplete为on或者off来来开启输入框的自动完成功能。
+        </div>
+      </div>
+  	</div>
+  </div>
+</div>
+</body>
+</html>
