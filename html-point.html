@@ -92,6 +92,33 @@ header{
           4. iframe页面会增加服务器的http请求
         </div>
       </div>
+      <div class="column">
+        <h3>webSocket如何兼容低浏览器？</h3>
+        <div class="content">
+          1. Adobe Flash Socket ActiveX HTMLFile (IE) 基于 multipart 编码发送 XHR 基于长轮询的 XHR<br/>
+          2. 引用WebSocket.js这个文件来兼容低版本浏览器。<br/>
+        </div>
+      </div>
+      <div class="column">
+        <h3>页面可见性（Page Visibility）API 可以有哪些用途？</h3>
+        <div class="content">
+          1. 通过visibility state的值得检测页面当前是否可见，以及打开网页的时间。<br/>
+          2. 在页面被切换到其他后台进程时，自动暂停音乐或视频的播放。<br/>
+        </div>
+      </div>
+      <div class="column">
+        <h3>网页验证码是干嘛的，是为了解决什么安全问题？</h3>
+        <div class="content">
+          1. 区分用户是计算机还是人;<br/>
+          2. 可以防止恶意破解密码、刷票、论坛灌水；<br/>
+        </div>
+      </div>
+      <div class="column">
+        <h3>元素的alt和title有什么异同？</h3>
+        <div class="content">
+          在alt和title同时设置的时候，alt作为图片的替代文字出现，title是图片的解释文字。
+        </div>
+      </div>
   	</div>
   	<div class="col col-md-6 col-xs-12">
   		<div class="column">
@@ -139,6 +166,36 @@ header{
           方法：<br/>
           1. 在IE的internet选项菜单中里的自动完成里面设置。<br/>
           2. 设置form输入框的autocomplete为on或者off来来开启输入框的自动完成功能。
+        </div>
+      </div>
+      <div class="column">
+        <h3>如何实现浏览器内多个标签页之间的通信</h3>
+        <div class="content">
+          1. WebSocket <br/>
+          2. 也可以调用 localstorge、cookies 等本地存储方式。 localstorge 在另一个浏览上下文里被添加、修改或删除时，它都会触发一个事件，我们通过监听事件，控制它的值来进行页面信息通信
+        </div>
+      </div>
+      <div class="column">
+        <h3> 如何在页面上实现一个圆形的可点击区域？</h3>
+        <div class="content">
+          1. map+area或者svg<br/>
+          2. border-radius<br/>
+          3. 纯js实现，一个点不在圆上的算法
+        </div>
+      </div>
+      <div class="column">
+        <h3> 实现不使用 border 画出1px高的线，在不同浏览器的Quirks mode和CSS Compat模式下都能保持同一效果</h3>
+        <div class="content">
+          &lt;div style="height:1px;overflow:hidden;background:red"&gt;&lt;/div&gt;
+        </div>
+      </div>
+      <div class="column">
+        <h3>title与h1的区别、b与strong的区别、i与em的区别？</h3>
+        <div class="content">
+          1. title属性没有明确意义，只表示标题；h1表示层次明确的标题，对页面信息的抓取也有很大的影响;<br/>
+          2. strong标明重点内容，语气加强含义；b是无意义的视觉表示<br/>
+          3. em表示强调文本；i是斜体，是无意义的视觉表示<br/>
+          4. 视觉样式标签：b i u s; 语义样式标签：strong em ins del code
         </div>
       </div>
   	</div>
