@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0">
+<title>requireJS</title>
+<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style type="text/css">
+body{
+  background: #e3e3e3;
+  font-family: "Helvetica Neue",Helvetica,Arial,"Hiragino Sans GB","Hiragino Sans GB W3","WenQuanYi Micro Hei","Microsoft YaHei UI","Microsoft YaHei",sans-serif;
+}
+header{
+  position: relative;
+  height: auto;
+  padding: 100px 0px;
+  text-align: center;
+  margin-bottom: 65px;
+}
+.column{
+  background: #fff;
+  position: relative;
+  height: auto;
+  padding: 35px;
+  margin-bottom: 35px;
+}
+.content{
+  position: relative;
+  height: auto;
+  padding-top: 20px;
+  line-height: 1.7!important;
+}
+</style>
+</head>
+<body>
+<header class="bg-primary">
+  <h1>CSS知识点复习</h1>
+</header>
+<div class="container-fluid">
+  <div class="row">
+  	<div class="col col-md-6 col-xs-12">
+  		<div class="column">
+  			<h3>介绍一下标准的CSS的盒子模型？与低版本IE的盒子模型有什么不同的？</h3>
+  			<div class="content">
+  				1. 标准盒子模型：宽度=内容的宽度（content）+ border + padding + margin<br/>
+          2. 低版本IE盒子模型：宽度=内容宽度（content+border+padding）+ margin
+  			</div>
+  		</div>
+      <div class="column">
+        <h3>box-sizing属性？</h3>
+        <div class="content">
+          用来控制元素的盒子模型的解析模式，默认为content-box<br/>
+          context-box：W3C的标准盒子模型，设置元素的 height/width 属性指的是content部分的高/宽<br/>
+          border-box：IE传统盒子模型。设置元素的height/width属性指的是border + padding + content部分的高/宽
+        </div>
+      </div>
+      <div class="column">
+        <h3>CSS优先级算法如何计算？</h3>
+        <div class="content">
+          !important声明的样式优先级最高，如果冲突再进行计算。<br/>
+          如果优先级相同，则选择最后出现的样式。<br/>
+          继承得到的样式的优先级最低。
+        </div>
+      </div>
+      <div class="column">
+        <h3>display有哪些值？说明他们的作用?</h3>
+        <div class="content">
+          inline（默认）--内联<br/>
+          none--隐藏<br/>
+          block--块显示<br/>
+          table--表格显示<br/>
+          list-item--项目列表<br/>
+          inline-block<br/>
+          flex,boxer,table-cell
+        </div>
+      </div>
+  	</div>
+  	<div class="col col-md-6 col-xs-12">
+  		<div class="column">
+  			<h3>CSS选择器有哪些？哪些属性可以继承？</h3>
+  			<div class="content">
+  				CSS选择符：id选择器(#myid)、类选择器(.myclassname)、标签选择器(div, h1, p)、相邻选择器(h1 + p)、子选择器（ul > li）、后代选择器（li a）、通配符选择器（*）、属性选择器（a[rel="external"]）、伪类选择器（a:hover, li:nth-child）<br/>
+          可继承的属性：font-size, font-family, color<br/>
+          不可继承的样式：border, padding, margin, width, height<br/>
+          优先级（就近原则）：!important > [ id > class > tag ] !important 比内联优先级高
+  			</div>
+  		</div>
+      <div class="column">
+        <h3>CSS3新增伪类有那些?</h3>
+        <div class="content">
+          p:first-of-type 选择属于其父元素的首个元素<br/>
+          p:last-of-type 选择属于其父元素的最后元素<br/>
+          p:only-of-type 选择属于其父元素唯一的元素<br/>
+          p:only-child 选择属于其父元素的唯一子元素<br/>
+          p:first-child 选择属于其父元素的第一个子元素<br/>
+          p:last-child 选择属于其父元素的最后一个子元素<br/>
+          p:nth-child(2) 选择属于其父元素的第二个子元素<br/>
+          :enabled :disabled 表单控件的禁用状态。<br/>
+          :checked 单选框或复选框被选中。
+        </div>
+      </div>
+  	</div>
+  </div>
+</div>
+</body>
+</html>
